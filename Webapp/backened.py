@@ -15,7 +15,7 @@ CORS(app)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 # Load the model
-MODEL_PATH = "D:/Project 1 Credit Card Fraud Detection/Model/random_forest_model.pkl"
+MODEL_PATH = "D:/Project 1 Credit Card Fraud Detection/Credit-Card-Fraud-Detection/Webapp/random_forest_model.pkl"
 model = None
 try:
     if os.path.exists(MODEL_PATH):
