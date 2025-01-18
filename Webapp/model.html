@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Card Fraud Detection</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+  <!-- Container -->
+  <div class="bg-white shadow-md rounded-lg p-6 max-w-md w-full text-center">
+    <h1 class="text-2xl font-bold text-gray-800 mb-4">Credit Card Fraud Detection</h1>
+    <p class="text-gray-600 mb-6">Choose a dataset row to test the model:</p>
+
+    <!-- Buttons -->
+    <button id="testFraudButton" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75 mb-2">
+      Test with Fraud Data
+    </button>
+    <button id="testNotFraudButton" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75">
+      Test with Not Fraud Data
+    </button>
+
+    <!-- Result -->
+    <div id="result" class="mt-6 text-lg font-medium text-gray-800"></div>
+  </div>
+
+  <script>
+    // Placeholder paths and data
+    const modelPath = "D:/Project 1 Credit Card Fraud Detection/Model/random_forest_model.pkl";
+    const fraudData = [406.0, -2.3122265423263, 1.95199201064158, -1.60985073229769, 3.9979055875468, -0.522187864667764, -1.42654531920595, -2.53738730624579, 1.39165724829804, -2.77008927719433, -2.77227214465915, 3.20203320709635, -2.89990738849473, -0.595221881324605, -4.28925378244217, 0.389724120274487, -1.14074717980657, -2.83005567450437, -0.0168224681808257, 0.416955705037907, 0.126910559061474, 0.517232370861764, -0.0350493686052974, -0.465211076182388, 0.320198198514526, 0.0445191674731724, 0.177839798284401, 0.261145002567677, -0.143275874698919, 0.0];
+    const notFraudData = [123.0, -0.697406502793757, -0.366845638394171, -1.38702414456923, -0.0549519225141512, -1.88115061699451, -1.11307463074242, 1.23423565126378, -2.06269450832568, 1.1353145552041, -0.52999172496712, -0.433123217964189, -0.217685501551073, -1.12176938299318, 0.678394527043, -0.432184021564302, 1.3459830215043, -1.21496506454453, 0.532184506054321, 0.1210456781249, -1.23432958230294, 1.123057601232, 0.23495678123004, -0.321095614532014, -0.650301984512306, 0.321084519832047, 0.145602135643101, 0.12450401353084, 0.06082104518302, 0.0];
+
+    // Function to test the model
+    async function testModel(data) {
+      try {
+        console.log("Test data being sent:", data);
+        document.getElementById("result").innerText = "Loading model and data...";
+
+        // Send request to Flask API
+        const response = await axios.post("http://localhost:5000/predict", {
+          data: data
+        });
+
+        // Log the response data to verify the result
+        console.log("Prediction response:", response.data);
+
+        // Display the prediction result
+        const prediction = response.data.prediction;
+        const confidence = response.data.confidence;
+        document.getElementById("result").innerHTML = `
+          Prediction: <span class="${prediction === 'Fraud' ? 'text-red-500' : 'text-green-500'} font-bold">
+            ${prediction}
+         
+        `;
+      } catch (error) {
+        console.error(error);
+        document.getElementById("result").innerText = "An error occurred while testing the model.";
+      }
+    }
+
+    document.getElementById("testFraudButton").addEventListener("click", () => testModel(fraudData));
+    document.getElementById("testNotFraudButton").addEventListener("click", () => testModel(notFraudData));
+  </script>
+
+</body>
+</html>

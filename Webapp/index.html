@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fraud Detection</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <header class="bg-blue-600 text-white py-6 shadow-md">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-extrabold">Credit Card Fraud Detection</h1>
+            <p class="mt-3 text-lg">Using machine learning algorithms to detect fraudulent credit card transactions.</p>
+        </div>
+        <div class="container mx-auto text-center">
+            <a href="../Reports/eda_report.html" class="inline-block text-sm px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-all transform hover:scale-105">Home</a>
+            <a href="../Webapp/model.html" class="inline-block text-sm px-4 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600 transition-all transform hover:scale-105">Model Evaluation</a>
+        </div>
+
+    <main class="container mx-auto py-8">
+        <section id="../visualization-buttons" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <button onclick="window.location.href='../Visualization/Amount_anomaly_detection.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">insights</span>
+                Amount Anomaly Detection
+            </button>
+            <button onclick="window.location.href='../Visualization/Amount_Box_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">bar_chart</span>
+                Amount Box Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/Amount_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                Amount Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/Class_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                Class Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/Correlation_Heatmap.html'"
+                class="bg-blue-500 text-white py-3 px-3 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2rem">heat_map</span>
+                Correlation Heatmap
+            </button>
+            <button onclick="window.location.href='../Visualization/Pair_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">scatter_plot</span>
+                Pair Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/V1_Box_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">bar_chart</span>
+                V1 Box Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/V1_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                V1 Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/V1_Time_Series.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">timeline</span>
+                V1 Time Series
+            </button>
+            <button onclick="window.location.href='../Visualization/V2_Box_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">bar_chart</span>
+                V2 Box Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/V2_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                V2 Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/V2_Time_Series.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">timeline</span>
+                V2 Time Series
+            </button>
+            <button onclick="window.location.href='../Visualization/V3_Box_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">bar_chart</span>
+                V3 Box Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/V3_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                V3 Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/V3_Time_Series.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">timeline</span>
+                V3 Time Series
+            </button>
+            <button onclick="window.location.href='../Visualization/V4_Box_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">bar_chart</span>
+                V4 Box Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/V4_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                V4 Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/V4_Time_Series.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">timeline</span>
+                V4 Time Series
+            </button>
+            <button onclick="window.location.href='../Visualization/V5_Box_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">bar_chart</span>
+                V5 Box Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/V5_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                V5 Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/V5_Time_Series.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">timeline</span>
+                V5 Time Series
+            </button>
+            <button onclick="window.location.href='../Visualization/V6_Box_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">bar_chart</span>
+                V6 Box Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/V6_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                V6 Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/V6_Time_Series.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">timeline</span>
+                V6 Time Series
+            </button>
+            <button onclick="window.location.href='../Visualization/V7_Box_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">bar_chart</span>
+                V7 Box Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/V7_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                V7 Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/V7_Time_Series.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">timeline</span>
+                V7 Time Series
+            </button>
+            <button onclick="window.location.href='../Visualization/V8_Box_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">bar_chart</span>
+                V8 Box Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/V8_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                V8 Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/V8_Time_Series.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">timeline</span>
+                V8 Time Series
+            </button>
+            <button onclick="window.location.href='../Visualization/V9_Box_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">bar_chart</span>
+                V9 Box Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/V9_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                V9 Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/V9_Time_Series.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">timeline</span>
+                V9 Time Series
+            </button>
+            <button onclick="window.location.href='../Visualization/V10_Box_Plot.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">bar_chart</span>
+                V10 Box Plot
+            </button>
+            <button onclick="window.location.href='../Visualization/V10_Distribution.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">pie_chart</span>
+                V10 Distribution
+            </button>
+            <button onclick="window.location.href='../Visualization/V10_Time_Series.html'"
+                class="bg-blue-500 text-white py-3 px-4 rounded-lg shadow-md hover:bg-blue-600 transition-all transform hover:scale-105 flex items-center justify-center">
+                <span class="material-icons mr-2">timeline</span>
+                V10 Time Series
+            </button>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Credit Card Fraud Detection Project. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+

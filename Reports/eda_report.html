@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Model Metrics Report</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <div class="container mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+    <h1 class="text-4xl font-bold text-blue-600 mb-5">Model Metrics Report</h1>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold text-blue-500 mb-4">Metrics Overview</h2>
+      <p class="text-gray-700 mb-4">
+        Below are the key performance metrics of the classification model. These metrics provide a comprehensive view of its predictive performance, highlighting its accuracy, precision, recall, and F1 score.
+      </p>
+      <table class="min-w-full table-auto bg-white border-collapse border border-gray-300 rounded-lg overflow-hidden shadow-sm">
+        <thead>
+          <tr class="bg-blue-100 text-left text-blue-800 uppercase text-sm leading-normal">
+            <th class="px-4 py-2">Metric</th>
+            <th class="px-4 py-2">Value</th>
+            <th class="px-4 py-2">Description</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <tr>
+            <td class="border border-gray-300 px-4 py-2">Accuracy</td>
+            <td class="border border-gray-300 px-4 py-2">0.9992509626300574</td>
+            <td class="border border-gray-300 px-4 py-2">
+              Measures the proportion of correctly predicted instances among all predictions.
+            </td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="border border-gray-300 px-4 py-2">Precision</td>
+            <td class="border border-gray-300 px-4 py-2">0.9247304361074974</td>
+            <td class="border border-gray-300 px-4 py-2">
+              Indicates the proportion of true positive predictions out of all positive predictions made by the model.
+            </td>
+          </tr>
+          <tr>
+            <td class="border border-gray-300 px-4 py-2">Recall</td>
+            <td class="border border-gray-300 px-4 py-2">0.8444890784447616</td>
+            <td class="border border-gray-300 px-4 py-2">
+              Evaluates the model's ability to identify all relevant instances (true positives) from the data.
+            </td>
+          </tr>
+          <tr class="bg-gray-50">
+            <td class="border border-gray-300 px-4 py-2">F1 Score</td>
+            <td class="border border-gray-300 px-4 py-2">0.8804094614433255</td>
+            <td class="border border-gray-300 px-4 py-2">
+              Harmonic mean of precision and recall, providing a balanced measure for imbalanced datasets.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold text-blue-500 mb-4">Confusion Matrix</h2>
+      <p class="text-gray-700 mb-4">
+        The confusion matrix showcases the breakdown of the model's predictions, highlighting true positives, true negatives, false positives, and false negatives.
+      </p>
+      <table class="min-w-full table-auto bg-white border-collapse border border-gray-300 rounded-lg overflow-hidden shadow-sm">
+        <thead>
+          <tr class="bg-blue-100 text-left text-blue-800 uppercase text-sm leading-normal">
+            <th class="px-4 py-2">True Negative</th>
+            <th class="px-4 py-2">False Positive</th>
+            <th class="px-4 py-2">False Negative</th>
+            <th class="px-4 py-2">True Positive</th>
+          </tr>
+        </thead>
+        <tbody class="text-gray-700">
+          <tr>
+            <td class="border border-gray-300 px-4 py-2">85277</td>
+            <td class="border border-gray-300 px-4 py-2">18</td>
+            <td class="border border-gray-300 px-4 py-2">46</td>
+            <td class="border border-gray-300 px-4 py-2">102</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold text-blue-500 mb-4">Classification Report</h2>
+      <p class="text-gray-700 mb-4">
+        The classification report summarizes precision, recall, F1-score, and support for each class. It gives an in-depth look at the model's performance on individual classes.
+      </p>
+      <pre class="bg-gray-100 p-4 border border-gray-300 rounded-lg text-sm overflow-auto">
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00     85295
+           1       0.85      0.69      0.76       148
+
+    accuracy                           1.00     85443
+   macro avg       0.92      0.84      0.88     85443
+weighted avg       1.00      1.00      1.00     85443
+      </pre>
+    </section>
+  </div>
+</body>
+</html>
